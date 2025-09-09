@@ -289,7 +289,7 @@ console.log(productDetails);
                   type="number"
                   :value="quantity"
                   min="1"
-                  class="flex justify-center items-center w-[54px] text-center border-none outline-none"
+                  class="flex justify-center items-center w-[54px] text-center border-none outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   @input="updateQuantity"
                   @blur="handleQuantityBlur">
                 <button
