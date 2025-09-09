@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import productDetails from '~/data/product'
+const { $toast } = useNuxtApp()
 
 const imageGallery = [
   {
@@ -142,6 +143,12 @@ const handleQuantityBlur = (event: Event) => {
   const value = parseInt(target.value) || 1
   quantity.value = Math.max(1, value)
   target.value = quantity.value.toString()
+}
+
+const addToCart = () => {
+  if ($toast) {
+    $toast.success('The product has been added to your cart')
+  }
 }
 
 onMounted(() => {
@@ -299,6 +306,7 @@ console.log(productDetails);
               </div>
               <button
                 class="w-full flex gap-2 h-[44px] justify-center items-center bg-[#231F20] hover:cursor-pointer"
+                @click="addToCart"
               >
                 <img
                   src="/images/icons/basket-add.svg"
